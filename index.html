@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poll Troll</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body class="container">
+    <div class="sidebar">
+      <h1>PollTroll</h1>
+      <hr />
+      <div class="option">
+        <label for="token" title="Your discord token">Token</label>
+        <input type="password" id="token" name="token" />
+      </div>
+      <div class="option">
+        <label for="channelid" title="ID of the channel to post in">
+          Channel ID <img src="/src/assets/info.svg" alt="info" />
+        </label>
+        <input type="text" id="channelid" name="channelid" value="" />
+      </div>
+      <div class="option">
+        <label
+          for="channelid"
+          title="ID of the server that your channel is in
+          Use @me for direct messages"
+        >
+          Server ID <img src="/src/assets/info.svg" alt="info" />
+        </label>
+        <input type="text" id="serverid" name="serverid" value="" />
+      </div>
+      <div class="option">
+        <label
+          for="cooldown"
+          title="How long to wait between posts
+        2500 is usually the best"
+        >
+          Post Cooldown (ms) <img src="/src/assets/info.svg" alt="info" />
+        </label>
+        <div class="number-input">
+          <button onclick="document.querySelector('#cooldown').stepDown()">
+            -
+          </button>
+          <input
+            type="number"
+            id="cooldown"
+            name="cooldown"
+            value="2500"
+            step="100"
+          />
+          <button onclick="document.querySelector('#cooldown').stepUp()">
+            +
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div class="footer">
+        <div class="controls-container">
+          <button id="clear" onclick="clear">Clear</button>
+          <button id="submit">Send</button>
+        </div>
+        <div class="credits-container">
+          <a
+            href="https://github.com/nullsoepic/polltroll"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-github"
+            >
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+          </a>
+          <a
+            href="https://ko-fi.com/vibing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-coffee"
+            >
+              <path d="M10 2v2" />
+              <path d="M14 2v2" />
+              <path
+                d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"
+              />
+              <path d="M6 2v2" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <textarea
+        name="text"
+        id="textinput"
+        placeholder="Put your text here..."
+      ></textarea>
+    </div>
+  </body>
+</html>
