@@ -1,5 +1,9 @@
 # Poll Troll
 
+> [!WARNING]
+> Discord has added a `Create Polls` permission (April 17 2024) <br>
+> If a user does not have this permission they will not be able to post polls, we will show a generic `Unable to create poll` error with an option to retry
+
 ![Screenshot](.github/assets/screenshot.png)
 
 Just a tiny desktop app I threw together quickly to play with Discord polls. This is a simple GUI for splitting a large text input into chunks and sending them as polls in Discord.

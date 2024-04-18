@@ -33,7 +33,7 @@ export function splitTextIntoPolls(text: string) {
 }
 
 export function postPoll(pollBody: any, channelID: string, serverID: string, token: string) {
-  fetch(`https://discord.com/api/v9/channels/${channelID}/messages`, {
+  return fetch(`https://discord.com/api/v9/channels/${channelID}/messages`, {
     headers: {
       'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; rv:124.0) Gecko/20100101 Firefox/124.0',
@@ -50,4 +50,6 @@ export function postPoll(pollBody: any, channelID: string, serverID: string, tok
     responseType: ResponseType.JSON,
     method: 'POST',
   })
+    .then(res => res.ok)
+    .catch(_e => false);
 }

@@ -18,7 +18,8 @@
         "open": true
       },
       "dialog": {
-        "message": true
+        "message": true,
+        "confirm": true
       },
       "http": {
         "all": true,

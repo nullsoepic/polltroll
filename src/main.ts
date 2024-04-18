@@ -1,4 +1,5 @@
 import { postPoll, splitTextIntoPolls } from "./polls";
+import { confirm } from "@tauri-apps/api/dialog";
 
 async function submit() {
   let textinput = document.querySelector('#textinput') as HTMLTextAreaElement;
@@ -46,7 +47,11 @@ async function submit() {
       },
     };
 
-    await postPoll(pollBody, channelid.value, serverid.value, token.value);
+    while (!await postPoll(pollBody, channelid.value, serverid.value, token.value)) {
+      if (!await confirm('Failed to create a poll!\nTry again or cancel'))
+        break
+    }
+
     await new Promise(resolve => setTimeout(resolve, parseInt(cooldown.value)));
   }
 }
